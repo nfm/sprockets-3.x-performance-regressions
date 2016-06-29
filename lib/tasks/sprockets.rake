@@ -7,7 +7,9 @@ namespace :sprockets do
     asset_count.times { |i| `touch #{Rails.root}/app/assets/images/#{i}.png` }
     puts "Done"
 
-    precompile_assets
+    if ENV['PRECOMPILE']
+      precompile_assets
+    end
 
     puts "Running benchmark..."
 
@@ -26,7 +28,9 @@ namespace :sprockets do
     end
     puts "Done"
 
-    precompile_assets
+    if ENV['PRECOMPILE']
+      precompile_assets
+    end
 
     puts "Running benchmark..."
 
